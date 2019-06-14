@@ -1,5 +1,6 @@
 package cn.ezios.practice.mp.entities;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
@@ -9,7 +10,9 @@ import lombok.Data;
  * @Creaded By Wangj
  */
 @Data
+@TableName(value = "shop_case")
 public class ShopModel {
+    private int id;
     private String name;
     private String address;
 }

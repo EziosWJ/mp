@@ -1,7 +1,9 @@
 package cn.ezios.practice.mp.controller;
 
+import cn.ezios.practice.mp.dao.ShopMapper;
 import cn.ezios.practice.mp.entities.ShopModel;
 import cn.ezios.practice.mp.entities.UserModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("user")
 public class UserController {
 
+    @Autowired
+    private ShopMapper shopMapper;
+
     @GetMapping({"/",""})
     public UserModel get(UserModel userModel){
         userModel.setId("01");
@@ -28,6 +33,7 @@ public class UserController {
     public ShopModel get(ShopModel shopModel){
         shopModel.setAddress("101");
         shopModel.setName("www");
+        shopMapper.insert(shopModel);
         return shopModel;
     }
 
